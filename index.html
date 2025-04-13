@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Менің Даусыммен Мәтінді Дыбыстау</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f2f2f2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+    }
+    textarea {
+      width: 80%;
+      height: 120px;
+      font-size: 18px;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+      background-color: #009688;
+      color: white;
+      border: none;
+      border-radius: 8px;
+    }
+    button:hover {
+      background-color: #00796b;
+    }
+    audio {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Менің Даусыммен Мәтінді Дыбыстау</h1>
+  <textarea id="textInput" placeholder="Мәтінді осында енгізіңіз..."></textarea>
+  <button onclick="playAudio()">Дыбыстау</button>
+  <audio id="voicePlayer" controls></audio>
+
+  <script>
+    const audioMap = {
+      "Сәлем": "audio/salem.mp3",
+      "Қалың қалай?": "audio/qalyn_qalai.mp3",
+      "Сенің атың кім?": "audio/atyng_kim.mp3"
+    };
+
+    function playAudio() {
+      const inputText = document.getElementById("textInput").value.trim();
+      const audio = document.getElementById("voicePlayer");
+
+      if (audioMap[inputText]) {
+        audio.src = audioMap[inputText];
+        audio.play();
+      } else {
+        alert("Бұл сөйлемге дауыс жазылмаған. Басқа сөйлем енгізіп көріңіз.");
+      }
+    }
+  </script>
+</body>
+</html>
